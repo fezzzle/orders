@@ -16,17 +16,17 @@ function App() {
             <div
                 className="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 lg:mx-auto sm:rounded-lg sm:px-10"
             >
-                <div className="flex justify-between mx-auto max-w-md">
-                    <p className="font-bold">All orders</p>
-                    <input
-                        className="gray"
-                        placeholder="Search"
-                        type="text"
-                        id=""
-                        name=""
-                        value={searchQuery}
-                        onChange={handleSearch}
-                    />
+                <div className="flex justify-between">
+                        <p className="text-3xl font-bold">All orders</p>
+                        <input
+                            className="bg-gray-100"
+                            placeholder="Search"
+                            type="text"
+                            id=""
+                            name=""
+                            value={searchQuery}
+                            onChange={handleSearch}
+                        />
                 </div>
                 <div className="mt-4 border-b-2"></div>
                 <div className="divide-y divide-gray-300/50">
