@@ -1,12 +1,23 @@
 import TableHead from "./TableHead";
 import orderTableColumns from "../util/tableutil";
 import TableBody from "./TableBody";
-import React, {useState} from "react";
-import {Orders} from "../types/types";
+import React, {useEffect, useState} from "react";
+import {TableProps} from "../types/types";
 
-const Table = ({data}: { data: Orders }) => {
 
+const Table = ({data, searchQuery}: TableProps) => {
     const [tableData, setTableData] = useState(data);
+
+    useEffect(() => {
+        const filtered = data.filter((item) =>
+            Object.values(item)
+                .join(" ")
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
+        );
+        setTableData(filtered);
+    }, [data, searchQuery]);
+
     const handleSorting = (sortField: string | number, sortOrder: string) => {
         if (sortField) {
             const sorted = [...tableData].sort((a, b) => {
@@ -16,7 +27,7 @@ const Table = ({data}: { data: Orders }) => {
                     ? sortValueA.toString().localeCompare(sortValueB.toString(), "en", {numeric: true})
                     : sortValueB.toString().localeCompare(sortValueA.toString(), "en", {numeric: true});
             });
-            setTableData(sorted);
+            setTableData(sorted)
         }
     };
     return (
