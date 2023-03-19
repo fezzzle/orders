@@ -19,6 +19,11 @@ export type Column = {
   accessor: string;
 };
 
+export interface TableProps {
+  data: Orders;
+  searchQuery: string;
+}
+
 
 const orderTableColumns: Column[] = [
   {
