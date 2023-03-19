@@ -19,6 +19,7 @@ export type Column = {
   accessor: string;
 };
 
+
 const orderTableColumns: Column[] = [
   {
     label: "Order ID",
@@ -47,6 +48,4 @@ const orderTableColumns: Column[] = [
 ];
 
 export default orderTableColumns;
-
-
 
