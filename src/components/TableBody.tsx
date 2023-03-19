@@ -12,7 +12,7 @@ const TableBody = ({tableData, columns}: { tableData: Orders, columns: Column[] 
         <tbody>
         {tableData.map((data) => {
             return (
-                <tr className="border-b-2" key={data.id}>
+                <tr className="border-b-2 last:border-0" key={data.id}>
                     {columns.map(({label, accessor}) => {
                         const tableData = data[accessor] ? data[accessor] : "N/A";
 
