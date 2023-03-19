@@ -2,8 +2,21 @@ import React, {useState} from "react";
 import returnSortingIcon from "../util/sortingIcon";
 import {Column} from "../types/types";
 
+interface Props {
+    columns: Column[];
+    handleSorting: (accessor: string, order: string) => void;
+}
 
-const TableHead = ({columns} : {columns: Column[] }) => {
+const TableHead = ({columns, handleSorting}: Props) => {
+    const [sortField, setSortField] = useState("");
+    const [order, setOrder] = useState("asc");
+    const handleSortingChange = (accessor: string) => {
+        const sortOrder =
+            accessor === sortField && order === "asc" ? "desc" : "asc";
+        setSortField(accessor);
+        setOrder(sortOrder);
+        handleSorting(accessor, sortOrder);
+    };
     return (
         <thead>
         <tr>
@@ -26,7 +39,8 @@ const TableHead = ({columns} : {columns: Column[] }) => {
                 );
             })}
         </tr>
-        </thead>);
+        </thead>
+    );
 };
 
 export default TableHead;
