@@ -1,7 +1,9 @@
 import React from "react";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
+import {Column} from "../types/types";
 
-const TableHead = ({columns}) => {
+
+const TableHead = ({columns} : {columns: Column[] }) => {
     return (
         <thead>
         <tr>
